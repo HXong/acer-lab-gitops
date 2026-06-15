@@ -13,8 +13,10 @@ spec:
       labels:
         app: nginx-test
     spec:
+      imagePullSecrets:
+        - name: ghcr-creds
       containers:
         - name: nginx
-          image: nginx:alpine
+          image: ghcr.io/hxong/acer-lab-sample-app:latest
           ports:
             - containerPort: 80
