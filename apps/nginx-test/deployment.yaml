@@ -17,6 +17,6 @@ spec:
         - name: ghcr-creds
       containers:
         - name: nginx
-          image: ghcr.io/hxong/acer-lab-sample-app:latest
+          image: ghcr.io/hxong/acer-lab-sample-app:25d8f79
           ports:
             - containerPort: 80
