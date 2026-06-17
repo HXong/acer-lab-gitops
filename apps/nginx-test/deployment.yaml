@@ -29,7 +29,7 @@ spec:
         - name: ghcr-creds
       containers:
         - name: sample-app
-          image: ghcr.io/hxong/acer-lab-sample-app:9155295
+          image: ghcr.io/hxong/acer-lab-sample-app:3f59dfa
           ports:
             - containerPort: 80
           readinessProbe:
