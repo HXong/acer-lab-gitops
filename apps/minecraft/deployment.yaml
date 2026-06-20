@@ -35,6 +35,8 @@ spec:
               value: "TRUE"
             - name: TYPE
               value: "VANILLA"
+            - name: ONLINE_MODE
+              value: "FALSE"
             - name: MEMORY
               value: "2G"
             - name: MOTD
