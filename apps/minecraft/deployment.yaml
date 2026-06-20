@@ -1,0 +1,77 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: minecraft
+  namespace: minecraft
+  labels:
+    app: minecraft
+    app.kubernetes.io/name: minecraft
+    app.kubernetes.io/part-of: acer-lab
+spec:
+  replicas: 1
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      app: minecraft
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: minecraft
+        app.kubernetes.io/name: minecraft
+        app.kubernetes.io/part-of: acer-lab
+    spec:
+      containers:
+        - name: minecraft
+          image: itzg/minecraft-server:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: minecraft
+              containerPort: 25565
+              protocol: TCP
+          env:
+            - name: EULA
+              value: "TRUE"
+            - name: TYPE
+              value: "VANILLA"
+            - name: MEMORY
+              value: "2G"
+            - name: MOTD
+              value: "Acer Lab Minecraft"
+            - name: DIFFICULTY
+              value: "normal"
+            - name: MODE
+              value: "survival"
+            - name: ENABLE_WHITELIST
+              value: "FALSE"
+            - name: ENFORCE_WHITELIST
+              value: "FALSE"
+            - name: WHITELIST
+              value: "YourMinecraftUsername,FriendUsername1,FriendUsername2"
+            - name: OPS
+              value: "YourMinecraftUsername"
+          volumeMounts:
+            - name: minecraft-data
+              mountPath: /data
+          readinessProbe:
+            tcpSocket:
+              port: minecraft
+            initialDelaySeconds: 60
+            periodSeconds: 10
+          livenessProbe:
+            tcpSocket:
+              port: minecraft
+            initialDelaySeconds: 180
+            periodSeconds: 30
+          resources:
+            requests:
+              cpu: 250m
+              memory: 2Gi
+            limits:
+              cpu: "2"
+              memory: 3Gi
+      volumes:
+        - name: minecraft-data
+          persistentVolumeClaim:
+            claimName: minecraft-data
