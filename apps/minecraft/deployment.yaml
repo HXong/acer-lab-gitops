@@ -46,9 +46,11 @@ spec:
             - name: MODE
               value: "survival"
             - name: ENABLE_WHITELIST
-              value: "FALSE"
+              value: "TRUE"
             - name: ENFORCE_WHITELIST
-              value: "FALSE"
+              value: "TRUE"
+            - name: WHITELIST
+              value: "desdow"
           volumeMounts:
             - name: minecraft-data
               mountPath: /data
