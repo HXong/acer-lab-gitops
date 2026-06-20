@@ -3,3 +3,4 @@ kind: Kustomization
 
 resources:
   - nginx-test.yaml
+  - demo-web.yaml
