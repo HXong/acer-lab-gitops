@@ -5,3 +5,4 @@ resources:
   - nginx-test.yaml
   - demo-web.yaml
   - minecraft.yaml
+  - demo-web-2.yaml

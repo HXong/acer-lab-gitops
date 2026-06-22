@@ -1,0 +1,47 @@
+app:
+  name: demo-web-2
+  namespace: demo-web-2
+  partOf: acer-lab
+
+replicaCount: 1
+revisionHistoryLimit: 3
+
+image:
+  repository: nginx
+  pullPolicy: IfNotPresent
+  tag: alpine
+
+imagePullSecrets: []
+
+container:
+  port: 80
+
+service:
+  type: NodePort
+  port: 80
+  nodePort: 30091
+
+livenessProbe:
+  httpGet:
+    path: /
+    port: http
+  initialDelaySeconds: 10
+  periodSeconds: 20
+
+readinessProbe:
+  httpGet:
+    path: /
+    port: http
+  initialDelaySeconds: 3
+  periodSeconds: 10
+
+resources:
+  requests:
+    cpu: 25m
+    memory: 32Mi
+  limits:
+    cpu: 100m
+    memory: 128Mi
+
+autoscaling:
+  enabled: false
