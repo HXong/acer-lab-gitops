@@ -41,10 +41,20 @@ spec:
               value: "2G"
             - name: MOTD
               value: "Acer Lab Minecraft"
+            - name: VIEW_DISTANCE
+              value: "6"
+            - name: SIMULATION_DISTANCE
+              value: "4"
+            - name: MAX_PLAYERS
+              value: "5"
+            - name: MAX_TICK_TIME
+              value: "120000"
             - name: DIFFICULTY
               value: "normal"
             - name: MODE
               value: "survival"
+            - name: SPAWN_PROTECTION
+              value: "0"
             - name: ENABLE_WHITELIST
               value: "TRUE"
             - name: ENFORCE_WHITELIST
