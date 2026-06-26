@@ -50,7 +50,7 @@ spec:
             - name: ENFORCE_WHITELIST
               value: "TRUE"
             - name: WHITELIST
-              value: "desdow"
+              value: "desdow,BeepBoop9844" 
           volumeMounts:
             - name: minecraft-data
               mountPath: /data
