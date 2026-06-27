@@ -1,0 +1,51 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: homelab-dashboard
+  namespace: homelab-dashboard
+  labels:
+    app: homelab-dashboard
+    app.kubernetes.io/name: homelab-dashboard
+    app.kubernetes.io/part-of: acer-lab
+spec:
+  replicas: 1
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      app: homelab-dashboard
+  template:
+    metadata:
+      labels:
+        app: homelab-dashboard
+        app.kubernetes.io/name: homelab-dashboard
+        app.kubernetes.io/part-of: acer-lab
+    spec:
+      serviceAccountName: homelab-dashboard
+      imagePullSecrets:
+        - name: ghcr-creds
+      containers:
+        - name: homelab-dashboard
+          image: ghcr.io/hxong/acer-lab-dashboard:0.1.0
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: http
+              containerPort: 8080
+          readinessProbe:
+            httpGet:
+              path: /api/health
+              port: http
+            initialDelaySeconds: 3
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /api/health
+              port: http
+            initialDelaySeconds: 10
+            periodSeconds: 20
+          resources:
+            requests:
+              cpu: 25m
+              memory: 32Mi
+            limits:
+              cpu: 100m
+              memory: 128Mi

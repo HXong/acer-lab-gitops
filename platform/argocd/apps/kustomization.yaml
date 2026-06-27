@@ -6,3 +6,4 @@ resources:
   - demo-web.yaml
   - minecraft.yaml
   - demo-web-2.yaml
+  - homelab-dashboard.yaml
