@@ -3,6 +3,10 @@ app:
   namespace: demo-web
   partOf: acer-lab
 
+owner:
+  name: hongxun
+  team: homelab
+
 replicaCount: 1
 revisionHistoryLimit: 3
 

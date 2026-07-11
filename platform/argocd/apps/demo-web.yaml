@@ -6,6 +6,8 @@ metadata:
   labels:
     app.kubernetes.io/name: demo-web
     app.kubernetes.io/part-of: acer-lab
+    acer-lab.io/owner: hongxun
+    acer-lab.io/team: homelab
 spec:
   project: default
 

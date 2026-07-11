@@ -4,7 +4,7 @@ metadata:
   name: {{ include "basic-web-app.name" . }}
   namespace: {{ include "basic-web-app.namespace" . }}
   labels:
-    {{- include "basic-web-app.labels" . | nindent 4 }}
+    {{- include "basic-web-app.resourceLabels" . | nindent 4 }}
 spec:
   type: {{ .Values.service.type }}
   selector:
