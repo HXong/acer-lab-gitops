@@ -25,7 +25,7 @@ spec:
         - name: ghcr-creds
       containers:
         - name: homelab-dashboard
-          image: ghcr.io/hxong/acer-lab-dashboard:e322ecf
+          image: ghcr.io/hxong/acer-lab-dashboard:bdd709b
           imagePullPolicy: IfNotPresent
           ports:
             - name: http
