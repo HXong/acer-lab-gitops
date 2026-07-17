@@ -27,6 +27,9 @@ spec:
         - name: homelab-dashboard
           image: ghcr.io/hxong/acer-lab-dashboard:a65962e
           imagePullPolicy: IfNotPresent
+          env:
+            - name: DASHBOARD_REQUIRE_AUTH
+              value: "true"
           ports:
             - name: http
               containerPort: 8080
