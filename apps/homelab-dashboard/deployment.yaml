@@ -30,6 +30,11 @@ spec:
           env:
             - name: DASHBOARD_REQUIRE_AUTH
               value: "true"
+            - name: DASHBOARD_PROXY_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: dashboard-proxy-secret
+                  key: secret
           ports:
             - name: http
               containerPort: 8080
